@@ -4,10 +4,13 @@ import {Redirect } from 'react-router-dom';
 const WelcomePage = () =>{
 
     const performLogout = async () => {
-        /*const result = await fetch(``, {
+        const userToken = window.sessionStorage.getItem('userToken');
+
+        const result = await fetch(`/logout`, {
             method: 'post',
+            body: JSON.stringify({token: userToken}),
+            //header is not required since the request is in plain text
         });
-        const body = await result.json();*/
         window.sessionStorage.removeItem('username');
         window.sessionStorage.removeItem('userToken');
         window.location.href='/login'

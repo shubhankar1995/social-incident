@@ -6,13 +6,17 @@ const LoginForm = () => {
     const [password, setpassword] = useState('')
     const [error, setError] = useState('');
 
-    const checkLogin = () => {
-        /*const result = await fetch(``, {
-            method: 'post',
-        });
-        const body = await result.json();*/
+    const checkLogin = async () => {
         if (username !== '' || password !== ''){
+
+            const result = await fetch(`/login`, {
+                method: 'post',
+                body: JSON.stringify({username, password}),
+                //header is not required since the request is in plain text
+            });
+            const body = await result.json();
             window.sessionStorage.setItem('username', username);
+            window.sessionStorage.setItem('userToken', body.token);
             window.location.href='/welcome';
         }
         else{
