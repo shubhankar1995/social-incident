@@ -6,7 +6,7 @@ const WelcomePage = () =>{
     const performLogout = async () => {
         const userToken = window.sessionStorage.getItem('userToken');
 
-        const result = await fetch(`/logout`, {
+        const result = await fetch(`https://9il287rnf8.execute-api.us-east-1.amazonaws.com/mvp/logout`, {
             method: 'post',
             body: JSON.stringify({token: userToken}),
             //header is not required since the request is in plain text

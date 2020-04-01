@@ -10,7 +10,7 @@ const RegistraionForm = () => {
 
     const registerUser = async () => {
         if (password === confirmPassword){
-            const result = await fetch(`/register`, {
+            const result = await fetch(`https://9il287rnf8.execute-api.us-east-1.amazonaws.com/mvp/register`, {
                 method: 'post',
                 body: JSON.stringify({username, password, email}),
                 //header is not required since the request is in plain text

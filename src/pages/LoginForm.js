@@ -9,15 +9,20 @@ const LoginForm = () => {
     const checkLogin = async () => {
         if (username !== '' || password !== ''){
 
-            const result = await fetch(`/login`, {
+            const result = await fetch(`https://9il287rnf8.execute-api.us-east-1.amazonaws.com/mvp/login`, {
                 method: 'post',
                 body: JSON.stringify({username, password}),
                 //header is not required since the request is in plain text
             });
             const body = await result.json();
-            window.sessionStorage.setItem('username', username);
-            window.sessionStorage.setItem('userToken', body.token);
-            window.location.href='/welcome';
+            if (body.status === 200){
+                window.sessionStorage.setItem('username', username);
+                window.sessionStorage.setItem('userToken', body.token);
+                window.location.href='/welcome';
+            }
+            else{
+                setError(body.error);
+            }
         }
         else{
             setError('Either username or password not filled');
