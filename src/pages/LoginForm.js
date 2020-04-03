@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 
+
 const LoginForm = () => {
     
     const [username, setUsername] = useState('');
@@ -35,19 +36,16 @@ const LoginForm = () => {
 
 
     return (
-        <div id = "add-comment-form">
-            <h3>Welcome! </h3>
-            <small>{error}</small>
-            <label>
-                Username:
-                <input type = "text" value = {username} onChange= {(event) => setUsername(event.target.value)} required/>
-            </label>
-            <label>
-                Password:
-                <input type = "password" value = {password} onChange= {(event) => setpassword(event.target.value)} />
-            </label>
-            <button onClick={ checkLogin } >Login</button> <br/><br/>
-            <button onClick={event =>  window.location.href='/registration'} >Register</button>
+        <div id = "screen-body">
+            <div class = "login">
+                <h1>Login</h1>
+                <br/>
+                <small>{error}</small>
+                <input type = "text" value = {username} onChange= {(event) => setUsername(event.target.value)} placeholder="username" required="required"/>
+                <input type = "password" value = {password} onChange= {(event) => setpassword(event.target.value)} placeholder="password" required="required"/>
+                <button onClick={ checkLogin } class="btn btn-primary btn-block btn-large">Login</button> 
+                <button onClick={event =>  window.location.href='/registration'} class="btn btn-primary btn-block btn-large">Register</button>
+            </div>
         </div>
     );
 }

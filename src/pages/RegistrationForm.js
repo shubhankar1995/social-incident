@@ -29,27 +29,16 @@ const RegistraionForm = () => {
     }
 
     return (
-        <div id = "add-comment-form">
-            <h3>Register Here!</h3>
+        <div class = "login">
+            <h1>Register Here!</h1>
+            <br/>
             <small>{error}</small>
-            <label>
-                Email Id:
-                <input type = "text" value = {email} onChange= {(event) => setEmail(event.target.value)} />
-            </label>
-            <label>
-                Username:
-                <input type = "text" value = {username} onChange= {(event) => setUsername(event.target.value)} />
-            </label>
-            <label>
-                Password:
-                <input type = "password" value = {password} onChange= {(event) => setPassword(event.target.value)} />
-            </label>
-            <label>
-                Confirm Password:
-                <input type = "password" value = {confirmPassword} onChange= {(event) => setConfirmPassword(event.target.value)} />
-            </label>
-            <button onClick={registerUser}>Register</button> <br/><br/>
-            <button onClick={event =>  window.location.href='/'} >Login Instead</button>
+            <input type = "text" value = {email} onChange= {(event) => setEmail(event.target.value)} placeholder="e-mail ID" required="required" />
+            <input type = "text" value = {username} onChange= {(event) => setUsername(event.target.value)} placeholder="username" required="required"/>
+            <input type = "password" value = {password} onChange= {(event) => setPassword(event.target.value)} placeholder="password" required="required"/>
+            <input type = "password" value = {confirmPassword} onChange= {(event) => setConfirmPassword(event.target.value)} placeholder="confirm password" required="required"/>
+            <button onClick={registerUser} class="btn btn-primary btn-block btn-large">Register</button>
+            <button onClick={event =>  window.location.href='/'} class="btn btn-primary btn-block btn-large">Login Instead</button>
         </div>
     );
 }

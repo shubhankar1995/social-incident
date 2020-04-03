@@ -9,6 +9,8 @@ import RegistrationForm from './pages/RegistrationForm';
 import WelcomePage from './pages/WelcomePage';
 import './App.css';
 
+
+
 function App() {
   return (
     <Router>
